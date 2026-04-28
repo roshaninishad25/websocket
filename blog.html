@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorialsPoint Clone - Blog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: {
+                            500: '#1e3a8a',
+                            600: '#172554',
+                        },
+                        tpDark: '#222222',
+                        tpLight: '#f8f9fa',
+                        tpGray: '#555555',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #222222;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header
+        class="h-16 bg-[#0f172a] text-white sticky top-0 z-50 flex items-center justify-between px-6 shadow-md border-b border-gray-800">
+        <div class="flex items-center gap-8">
+            <a href="home.html" class="text-2xl font-bold tracking-tight flex items-center gap-2">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                tutorialspoint
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold tracking-wide">
+                <a href="home.html" class="hover:text-blue-300 transition-colors">Home</a>
+                <a href="courses.html" class="hover:text-blue-300 transition-colors">Courses</a>
+                <a href="blog.html" class="hover:text-blue-300 transition-colors">Blog</a>
+                <a href="index.html" class="hover:text-blue-300 transition-colors">Tutorials</a>
+                <a href="about.html" class="hover:text-blue-300 transition-colors">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300 transition-colors">Contact</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="hidden lg:flex bg-white text-gray-800 rounded-md px-3 py-2 items-center">
+                <input type="text" placeholder="Search tutorials..." class="outline-none bg-transparent text-sm w-48"
+                    onkeydown="if(event.key === 'Enter') window.location.href='blog.html'" />
+                <a href="blog.html"><svg class="w-4 h-4 text-gray-500 hover:text-brandBlue-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg></a>
+            </div>
+            <a href="login.html"
+                class="bg-white text-brandBlue-600 px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-gray-100 transition">Login</a>
+            <a href="signup.html"
+                class="bg-[#222222] text-white px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-black transition">Sign
+                Up</a>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="flex max-w-[1400px] mx-auto bg-white min-h-[calc(100vh-64px)] p-6 lg:p-8">
+
+        <div class="flex flex-col md:flex-row gap-8 w-full">
+            <!-- Blog Posts Area -->
+            <div class="flex-1">
+                <h1 class="text-3xl font-bold mb-6 text-tpDark border-b pb-4">Blog & Courses</h1>
+
+                <div class="grid gap-6">
+                    <!-- Post 1 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Advanced WebSockets Guide - Part 1</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Learn the essential concepts and best
+                            practices for building scalable applications with WebSockets. We will cover the native
+                            WebSocket API, how to establish persistent full-duplex connections, and the key differences
+                            between traditional HTTP request-response cycles and the ws:// protocol in modern web
+                            architecture.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 2 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Full-Stack Frontend Mastery - Module 1</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Learn the essential concepts and best
+                            practices for building scalable applications with modern Frontend frameworks. This module
+                            dives deep into React 18 features, concurrent rendering, and how to structure your Next.js
+                            application for maximum performance and SEO visibility.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 3 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Real-Time Chat Applications</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">A deep dive into managing socket
+                            connections and states in React and Express. You'll build a fully functional real-time chat
+                            application complete with "user is typing..." indicators, online presence tracking, and
+                            persistent message history storage using PostgreSQL and Prisma.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 4 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">State Management in React</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Comparing Redux Toolkit, Zustand, and the
+                            native Context API for enterprise-level applications. Discover which state management
+                            solution is right for your next project by evaluating boilerplate code, performance
+                            implications, and developer experience.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 5 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Socket.io vs Native WebSockets</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">When to use a library like Socket.io
+                            versus implementing the native browser WebSocket API. We break down the pros and cons,
+                            focusing on built-in fallback polling, automatic reconnections, and broadcasting
+                            capabilities that Socket.io provides out of the box.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 6 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Next.js 14 App Router</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Migrating your old Pages router app to the
+                            modern Next.js 14 App Router paradigm. Learn about layout files, server actions, and how the
+                            new router fundamentally changes data fetching.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 7 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Handling Reconnections</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Implementing robust exponential backoff
+                            strategies for flaky websocket connections. This tutorial provides copy-pasteable snippets
+                            for handling network drops without overwhelming your server.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 8 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Tailwind CSS Advanced Patterns</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">How to structure your utility classes and
+                            customize your tailwind.config.js efficiently. We cover building a design system, extracting
+                            components, and using arbitrary variants for complex UI.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 9 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Securing your WebSocket server</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Best practices for authentication,
+                            authorization, and wss:// protocols. Learn how to pass JWT tokens securely during the
+                            initial handshake and prevent cross-site websocket hijacking (CSWSH).</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 10 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">React Server Components Explained</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Understanding the boundary between client
+                            components and server components. Discover how to reduce your javascript bundle size by
+                            pushing heavy dependencies exclusively to the server.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 11 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Scaling WebSockets with Redis</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">How to broadcast messages across multiple
+                            server instances using Redis Pub/Sub. We solve the problem of sticky sessions and ensure
+                            messages reach users no matter which load-balanced node they connect to.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 12 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Responsive Design in 2026</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Modern CSS features like container queries
+                            and subgrid for fluid interfaces. Stop relying on media queries and learn how to build
+                            components that naturally adapt to their parent container's width.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 13 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Multiplayer Game Synchronization</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Techniques for client-side prediction and
+                            server reconciliation in browser games. Learn how to hide network latency and provide a
+                            smooth, lag-free experience for competitive web games.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 14 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Web Accessibility (a11y) Guide</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">How to ensure your single page
+                            applications are usable by screen readers. We cover ARIA roles, focus management in React,
+                            and building a perfectly accessible modal dialog.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 15 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Binary Data over WebSockets</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Transferring ArrayBuffers and Blobs for
+                            high-performance data streaming. Move beyond JSON strings and learn how to pack binary data
+                            for efficient file uploads and real-time audio processing.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 16 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Optimizing Core Web Vitals</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Strategies for improving LCP, FID, and CLS
+                            scores in React applications. We'll analyze common pitfalls like font loading, image
+                            optimization, and blocking the main thread with heavy renders.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 17 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Building a Live Dashboard</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Feeding real-time analytics data to D3.js
+                            or Chart.js using websocket streams. Create visually stunning, self-updating charts that
+                            reflect database changes the millisecond they happen.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 18 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Micro-Frontends Architecture</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Using Module Federation to split large
+                            frontend monoliths into smaller chunks. Learn how multiple teams can independently deploy
+                            React components into a single cohesive application shell.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 19 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">WebSockets</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">WebRTC vs WebSockets</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Understanding the differences and when to
+                            use peer-to-peer data channels. We compare latency, bandwidth usage, and browser support to
+                            help you choose the right protocol for video streaming.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                    <!-- Post 20 -->
+                    <div class="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <span
+                            class="text-xs font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Frontend</span>
+                        <h2 class="text-2xl font-bold mb-2"><a href="post.html"
+                                class="text-tpDark hover:text-brandBlue-500">Testing React Applications</a></h2>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">A comprehensive guide to React Testing
+                            Library, Jest, and Cypress end-to-end tests. Write resilient tests that focus on user
+                            behavior rather than implementation details to catch bugs early.</p>
+                        <a href="post.html" class="text-brandBlue-600 font-semibold hover:underline">Read Article
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar for Blog Section -->
+            <aside class="w-full md:w-80">
+                <div class="bg-tpLight p-6 rounded-lg border border-gray-200 sticky top-24">
+                    <h3 class="font-bold text-lg mb-4 text-tpDark">Search Blog</h3>
+                    <input type="text" placeholder="Search 20+ articles..."
+                        class="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:border-brandBlue-500" />
+
+                    <h3 class="font-bold text-lg mb-4 text-tpDark border-t pt-6">Related Categories</h3>
+                    <ul class="space-y-2 text-sm text-tpGray">
+                        <li><a href="#" class="hover:text-brandBlue-500">WebSockets Security</a></li>
+                        <li><a href="#" class="hover:text-brandBlue-500">Socket.io vs Native</a></li>
+                        <li><a href="#" class="hover:text-brandBlue-500">React Server Components</a></li>
+                        <li><a href="#" class="hover:text-brandBlue-500">Tailwind CSS Advanced</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const postLinks = document.querySelectorAll('.grid a[href="post.html"]');
+            postLinks.forEach((link, index) => {
+                // There are 2 links per post card (title and 'read article').
+                const id = Math.floor(index / 2) + 1;
+                link.href = `post.html?id=${id}`;
+            });
+
+            const mockupLinks = document.querySelectorAll('a[href="#"]');
+            mockupLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert("This link is a placeholder in this visual prototype.\n\nPlease use the 'Courses', 'Blog', and 'Tutorials' links in the top menu to navigate between the main pages.");
+                });
+            });
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Login')) {
+                    btn.addEventListener('click', () => alert('Login placeholder (Requires Phase 3 backend)'));
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

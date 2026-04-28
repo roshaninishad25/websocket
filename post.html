@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorialsPoint Clone - Blog Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brandBlue: { 500: '#1e3a8a', 600: '#172554' }, tpDark: '#222222', tpLight: '#f8f9fa', tpGray: '#555555' } } } }
+    </script>
+</head>
+
+<body class="min-h-screen bg-white">
+
+    <!-- Header -->
+    <header
+        class="h-16 bg-[#0f172a] text-white sticky top-0 z-50 flex items-center justify-between px-6 shadow-md border-b border-gray-800">
+        <div class="flex items-center gap-8">
+            <a href="home.html" class="text-2xl font-bold tracking-tight flex items-center gap-2">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                tutorialspoint
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold tracking-wide">
+                <a href="home.html" class="hover:text-blue-300 transition-colors">Home</a>
+                <a href="courses.html" class="hover:text-blue-300 transition-colors">Courses</a>
+                <a href="blog.html" class="hover:text-blue-300 transition-colors">Blog</a>
+                <a href="index.html" class="hover:text-blue-300 transition-colors">Tutorials</a>
+                <a href="about.html" class="hover:text-blue-300 transition-colors">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300 transition-colors">Contact</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="login.html"
+                class="bg-white text-brandBlue-600 px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-gray-100 transition">Login</a>
+            <a href="signup.html"
+                class="bg-tpDark text-white px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-black transition">Sign
+                Up</a>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="flex max-w-[1400px] mx-auto bg-white min-h-[calc(100vh-64px)] p-6 lg:p-8">
+        <main class="flex-1 min-w-0">
+            <div class="max-w-4xl mx-auto">
+                <!-- Breadcrumbs -->
+                <nav class="flex text-sm text-gray-500 mb-6 bg-tpLight p-3.5 rounded-md border border-gray-200">
+                    <ol class="flex items-center space-x-2">
+                        <li><a href="home.html" class="hover:text-brandBlue-500 flex items-center">Home</a></li>
+                        <li><span class="mx-2 text-gray-400">/</span></li>
+                        <li><a href="blog.html" class="hover:text-brandBlue-500">Blog</a></li>
+                        <li><span class="mx-2 text-gray-400">/</span></li>
+                        <li id="breadcrumb-title" class="text-gray-800 font-semibold" aria-current="page">Loading...
+                        </li>
+                    </ol>
+                </nav>
+
+                <span id="post-category"
+                    class="text-sm font-bold text-brandBlue-600 uppercase tracking-wider mb-2 block">Category</span>
+                <h1 id="post-title" class="text-4xl font-extrabold mb-4 text-tpDark border-b pb-4">Loading Post...</h1>
+
+                <div class="prose prose-lg text-gray-700 mt-8 max-w-none">
+                    <p id="post-desc"
+                        class="mb-8 text-xl font-medium text-gray-800 leading-relaxed border-l-4 border-brandBlue-500 pl-4 bg-green-50 p-4 rounded-r-lg">
+                        Loading description...</p>
+
+                    <p id="post-intro" class="mb-6 text-lg leading-relaxed">Loading intro...</p>
+
+                    <h2 id="post-code-title" class="text-3xl font-bold text-tpDark mt-12 mb-6">Implementation & Code
+                        Example</h2>
+                    <p id="post-deep-dive" class="mb-6 text-lg leading-relaxed">Loading deep dive...</p>
+                    <p id="post-code-desc" class="mb-4 text-md text-gray-600 italic">Loading code description...</p>
+
+                    <pre
+                        class="bg-[#282a36] border border-gray-700 text-sm text-[#f8f8f2] p-6 rounded-xl overflow-x-auto shadow-2xl font-mono"><code id="post-code">Loading code...</code></pre>
+
+                    <h2 class="text-3xl font-bold text-tpDark mt-16 mb-6">Conclusion & Next Steps</h2>
+                    <p id="post-conclusion" class="mb-8 text-lg leading-relaxed">Loading conclusion...</p>
+
+                    <!-- Pagination Buttons -->
+                    <div class="flex justify-between mt-12 mb-12 border-t pt-6" id="pagination-container">
+                        <a id="btn-prev" href="#"
+                            class="px-5 py-2.5 border border-gray-300 rounded hover:bg-gray-50 font-semibold text-gray-700 shadow-sm transition-colors hidden">&larr;
+                            Previous Tutorial</a>
+                        <a id="btn-next" href="#"
+                            class="px-5 py-2.5 bg-brandBlue-500 text-white rounded hover:bg-brandBlue-600 font-semibold shadow-sm transition-colors ml-auto hidden">Next
+                            Tutorial &rarr;</a>
+                    </div>
+
+                    <div
+                        class="mt-16 bg-gradient-to-r from-green-50 to-emerald-100 p-10 rounded-2xl border border-green-200 flex flex-col md:flex-row justify-between items-center shadow-md">
+                        <div class="mb-6 md:mb-0">
+                            <h3 class="font-black text-3xl text-tpDark mb-2">Ready to master this topic?</h3>
+                            <p class="text-gray-700 m-0 text-xl">Unlock the full premium video course today for ₹3,999.
+                            </p>
+                        </div>
+                        <a href="courses.html"
+                            class="bg-brandBlue-600 text-white px-10 py-5 rounded-xl font-bold hover:bg-brandBlue-500 transition shadow-xl text-xl hover:scale-105 transform duration-200">
+                            View Courses
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const postsData = {
+            1: {
+                title: "Advanced WebSockets Guide - Part 1", category: "WebSockets",
+                desc: "Learn the essential concepts and best practices for building scalable applications with WebSockets. We will cover the native WebSocket API, how to establish persistent full-duplex connections, and the key differences between HTTP and the ws:// protocol.",
+                intro: "When building modern web applications, the traditional HTTP request-response cycle often falls short. If you need real-time data—like live sports scores, chat applications, or collaborative document editing—polling the server every few seconds is highly inefficient and drains battery life. This is where WebSockets shine. The WebSocket protocol allows you to open a persistent, bi-directional communication channel between the client and the server.",
+                deepDive: "Unlike HTTP, which is stateless and requires headers to be sent with every request, WebSockets perform a single HTTP handshake to upgrade the connection. Once upgraded, data frames can be sent back and forth with minimal overhead. This drastically reduces latency and bandwidth consumption for applications that require rapid, continuous data exchange.",
+                codeTitle: "Establishing a Basic Connection", codeDesc: "Here is how you open a connection to your WebSocket server and handle the native browser connection events:",
+                code: "const socket = new WebSocket('ws://localhost:8080');\n\n// Connection opened\nsocket.addEventListener('open', function (event) {\n    console.log('Connected to the WS server!');\n    socket.send('Hello Server!');\n});\n\n// Listen for messages\nsocket.addEventListener('message', function (event) {\n    console.log('Message from server ', event.data);\n});\n\n// Handle errors gracefully\nsocket.addEventListener('error', function (error) {\n    console.error('WebSocket Error: ', error);\n});",
+                conclusion: "As you can see, the native WebSocket API is incredibly straightforward. With just a few lines of JavaScript, you can establish a persistent connection. However, scaling this across multiple servers, handling network drops, and broadcasting messages requires additional logic. In the next part of this guide, we will explore Socket.io and how it abstracts away these complexities."
+            },
+            2: {
+                title: "Full-Stack Frontend Mastery - Module 1", category: "Frontend",
+                desc: "Learn the essential concepts and best practices for building scalable applications with modern Frontend frameworks. This module dives deep into React 18 features, concurrent rendering, and Next.js structuring.",
+                intro: "The frontend landscape has shifted dramatically over the past few years. We are no longer just building 'web pages'—we are engineering complex, stateful applications that rival native desktop software in complexity and performance. React 18 introduced a paradigm shift with Concurrent Rendering, fundamentally changing how we think about UI updates.",
+                deepDive: "Before React 18, rendering was synchronous. Once an update started, nothing could interrupt it until the UI was fully updated. This often led to 'janky' user experiences when handling large datasets or complex animations. Concurrent rendering allows React to interrupt, pause, resume, or abandon a render to prioritize more critical user interactions, like typing in an input field.",
+                codeTitle: "React 18 Concurrent Rendering", codeDesc: "Using the useTransition hook to keep the UI responsive during expensive, non-urgent renders:",
+                code: "import { useState, useTransition } from 'react';\n\nfunction Dashboard() {\n  const [isPending, startTransition] = useTransition();\n  const [filter, setFilter] = useState('');\n\n  function handleFilterChange(e) {\n    // The input updates immediately (urgent)\n    const newFilter = e.target.value;\n    \n    // The heavy list filtering is marked as non-urgent\n    startTransition(() => {\n      setFilter(newFilter);\n    });\n  }\n\n  return (\n    <div>\n      <input onChange={handleFilterChange} placeholder=\"Search records...\" />\n      {isPending ? <Spinner /> : <HeavyDataGrid filter={filter} />}\n    </div>\n  );\n}",
+                conclusion: "Mastering concurrent features like `useTransition` and `useDeferredValue` is essential for building fluid, professional-grade React applications. By explicitly telling React which state updates are urgent and which can be deferred, you ensure that your application always feels lightning fast to the end user."
+            },
+            3: {
+                title: "Real-Time Chat Applications", category: "WebSockets",
+                desc: "A deep dive into managing socket connections and states in React and Express. You'll build a fully functional real-time chat application complete with online presence tracking and persistent message history.",
+                intro: "Building a chat application is the quintessential 'Hello World' of WebSockets. It perfectly encapsulates the core challenges of real-time engineering: broadcasting messages, tracking connected users, handling disconnects, and syncing state across multiple clients instantly.",
+                deepDive: "While native WebSockets work, building a production chat app requires a library like Socket.io to handle fallback transports (long-polling) if corporate firewalls block WS connections. It also provides built-in mechanisms for 'rooms' and 'namespaces', allowing you to easily isolate chat messages to specific channels or direct message threads without building complex routing logic yourself.",
+                codeTitle: "Socket.io Server Setup", codeDesc: "Setting up a robust Socket.io server with Express to handle chat messages and broadcast them securely:",
+                code: "const express = require('express');\nconst app = express();\nconst http = require('http').Server(app);\nconst io = require('socket.io')(http, {\n  cors: { origin: \"https://yourdomain.com\" }\n});\n\nio.on('connection', (socket) => {\n  console.log(`User connected: ${socket.id}`);\n  \n  socket.on('join_room', (roomId) => {\n    socket.join(roomId);\n    socket.to(roomId).emit('user_joined', { userId: socket.id });\n  });\n\n  socket.on('chat_message', (data) => {\n    // Broadcast only to users in this specific room\n    io.to(data.roomId).emit('new_message', data.message);\n  });\n});\n\nhttp.listen(3000, () => console.log('Chat server active on port 3000'));",
+                conclusion: "This foundational architecture allows you to scale up to thousands of concurrent users. By leveraging Socket.io's built-in room abstractions, you avoid the massive performance penalty of iterating over every connected client to check if they belong to a specific chat thread. Next steps include storing these messages in a PostgreSQL database."
+            },
+            4: {
+                title: "State Management in React", category: "Frontend",
+                desc: "Comparing Redux Toolkit, Zustand, and the native Context API for enterprise-level applications. Discover which state management solution is right for your next project.",
+                intro: "As a React application grows, managing state via simple prop-drilling quickly becomes unmaintainable. Components five levels deep suddenly need access to the current user's profile data, and passing props down the entire tree causes unnecessary re-renders and spaghetti code. This is the problem global state management solves.",
+                deepDive: "For years, Redux was the undisputed king of React state management. However, its immense boilerplate led developers to seek alternatives. Today, Zustand offers a minimalist, hooks-based approach that integrates seamlessly with React without wrapping your app in massive Context Providers. Unlike Context API, which triggers a re-render for every component consuming it when *any* value changes, Zustand allows components to subscribe to specific slices of state.",
+                codeTitle: "Zustand Store Creation", codeDesc: "Creating a simple, highly-performant global store using Zustand that prevents unnecessary re-renders:",
+                code: "import { create } from 'zustand'\n\n// 1. Create the store\nconst useAuthStore = create((set) => ({\n  user: null,\n  isAuthenticated: false,\n  login: (userData) => set({ user: userData, isAuthenticated: true }),\n  logout: () => set({ user: null, isAuthenticated: false }),\n}))\n\n// 2. Consume specific state slices in your component\nfunction UserProfile() {\n  // This component ONLY re-renders if 'user' changes.\n  // It ignores changes to 'isAuthenticated' or the methods.\n  const user = useAuthStore((state) => state.user)\n  \n  if (!user) return <p>Please log in.</p>\n  return <h1>Welcome back, {user.name}!</h1>\n}",
+                conclusion: "Choosing the right state management tool depends heavily on your team and project scope. For massive enterprise apps with complex time-travel debugging needs, Redux Toolkit is still excellent. But for 90% of modern applications, Zustand provides the perfect balance of developer experience, minimal boilerplate, and exceptional performance."
+            },
+            5: {
+                title: "Socket.io vs Native WebSockets", category: "WebSockets",
+                desc: "When to use a library like Socket.io versus implementing the native browser WebSocket API. We break down the pros and cons, focusing on built-in fallback polling.",
+                intro: "A common question from developers entering the real-time space is whether they should use the native `WebSocket` API built into modern browsers, or adopt a wrapper library like Socket.io. The answer, as always, is 'it depends'.",
+                deepDive: "Native WebSockets are incredibly fast, lightweight, and require zero external dependencies on the client side. If you are building a high-frequency trading platform where every microsecond counts, native is the way to go. However, Socket.io provides critical quality-of-life features: automatic reconnections with exponential backoff, fallback to HTTP Long-Polling for restrictive firewalls, and built-in message acknowledgment callbacks.",
+                codeTitle: "Broadcasting in Socket.io", codeDesc: "Socket.io makes it incredibly easy to broadcast messages to all connected clients except the sender, something that requires manual array tracking in native WS:",
+                code: "const io = require('socket.io')(3000);\n\nio.on('connection', (socket) => {\n  // 'socket.broadcast' targets everyone EXCEPT the user who just connected\n  socket.broadcast.emit('system_alert', {\n    message: `A new user (${socket.id}) has joined the server.`\n  });\n\n  socket.on('disconnect', () => {\n    // Notify everyone else that they left\n    socket.broadcast.emit('system_alert', { \n      message: `User ${socket.id} has disconnected.` \n    });\n  });\n});",
+                conclusion: "If you are building a standard chat app, collaborative tool, or live dashboard, the few kilobytes of overhead introduced by Socket.io are well worth the massive reduction in boilerplate code. You save dozens of hours not having to write your own reconnection logic and heartbeat ping/pong mechanisms."
+            }
+        };
+
+        // Populate remaining 15 posts with solid fallback content to prevent crashes and provide a good mockup experience
+        for (let i = 6; i <= 20; i++) {
+            if (!postsData[i]) {
+                postsData[i] = {
+                    title: `Advanced Technical Tutorial - Module ${i}`,
+                    category: i % 2 === 0 ? "Frontend" : "WebSockets",
+                    desc: "This is a comprehensive, deep-dive tutorial covering advanced architectural patterns and performance optimization techniques for modern full-stack applications.",
+                    intro: "As applications scale to serve millions of users, the naive approaches to data fetching and real-time communication break down. This module explores enterprise-grade solutions to these exact bottlenecks.",
+                    deepDive: "We will examine real-world case studies of how major tech companies refactored their legacy systems to embrace modern paradigms. Understanding the 'why' behind these architectural shifts is just as important as the 'how'.",
+                    codeTitle: "System Implementation",
+                    codeDesc: "Below is a streamlined example demonstrating the core concepts discussed in this architecture review:",
+                    code: "// Production-ready implementation stub\nimport { optimizePerformance } from '@system/core';\n\nexport async function handleRequest(payload) {\n  try {\n    const result = await optimizePerformance(payload);\n    console.log('Operation completed successfully', result);\n    return result;\n  } catch (error) {\n    console.error('Critical system failure:', error);\n    throw error;\n  }\n}",
+                    conclusion: "By applying these patterns, you ensure your application remains highly available and performant under severe load. Be sure to review the provided code snippet and adapt it to your specific database schema."
+                };
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let postId = urlParams.get('id') || 1;
+
+            if (!postsData[postId]) postId = 1;
+            const post = postsData[postId];
+
+            document.getElementById('breadcrumb-title').textContent = post.title;
+            document.getElementById('post-category').textContent = post.category;
+            document.getElementById('post-title').textContent = post.title;
+
+            document.getElementById('post-desc').textContent = post.desc;
+            document.getElementById('post-intro').textContent = post.intro;
+            document.getElementById('post-deep-dive').textContent = post.deepDive;
+
+            document.getElementById('post-code-title').textContent = post.codeTitle;
+            document.getElementById('post-code-desc').textContent = post.codeDesc;
+            document.getElementById('post-code').textContent = post.code;
+
+            document.getElementById('post-conclusion').textContent = post.conclusion;
+
+            document.title = `${post.title} - TutorialsPoint Clone`;
+
+            // Setup dynamic Next/Previous buttons
+            const postIdNum = parseInt(postId);
+            if (postIdNum > 1) {
+                const prevBtn = document.getElementById('btn-prev');
+                prevBtn.href = `post.html?id=${postIdNum - 1}`;
+                prevBtn.classList.remove('hidden');
+            }
+            if (postIdNum < 20) {
+                const nextBtn = document.getElementById('btn-next');
+                nextBtn.href = `post.html?id=${postIdNum + 1}`;
+                nextBtn.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

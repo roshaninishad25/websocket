@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorialsPoint Clone - WebSockets</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: {
+                            500: '#1e3a8a',
+                            600: '#172554',
+                        },
+                        tpDark: '#222222',
+                        tpLight: '#f8f9fa',
+                        tpGray: '#555555',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #222222;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header
+        class="h-16 bg-[#0f172a] text-white sticky top-0 z-50 flex items-center justify-between px-6 shadow-md border-b border-gray-800">
+        <div class="flex items-center gap-8">
+            <a href="home.html" class="text-2xl font-bold tracking-tight flex items-center gap-2">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                tutorialspoint
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold tracking-wide">
+                <a href="home.html" class="hover:text-blue-300 transition-colors">Home</a>
+                <a href="courses.html" class="hover:text-blue-300 transition-colors">Courses</a>
+                <a href="blog.html" class="hover:text-blue-300 transition-colors">Blog</a>
+                <a href="index.html" class="hover:text-blue-300 transition-colors">Tutorials</a>
+                <a href="about.html" class="hover:text-blue-300 transition-colors">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300 transition-colors">Contact</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="hidden lg:flex bg-white text-gray-800 rounded-md px-3 py-2 items-center">
+                <input type="text" placeholder="Search tutorials..." class="outline-none bg-transparent text-sm w-48"
+                    onkeydown="if(event.key === 'Enter') window.location.href='blog.html'" />
+                <a href="blog.html"><svg class="w-4 h-4 text-gray-500 hover:text-brandBlue-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg></a>
+            </div>
+            <a href="login.html"
+                class="bg-white text-brandBlue-600 px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-gray-100 transition">Login</a>
+            <a href="signup.html"
+                class="bg-[#222222] text-white px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-black transition">Sign
+                Up</a>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="flex max-w-[1400px] mx-auto bg-white min-h-[calc(100vh-64px)]">
+
+        <!-- Sidebar -->
+        <aside
+            class="w-64 flex-shrink-0 border-r border-gray-200 h-[calc(100vh-64px)] overflow-y-auto sticky top-16 bg-white hidden md:block">
+            <div class="p-4">
+                <h3 class="font-bold text-lg mb-4 text-tpDark border-b pb-2">Learn WebSockets</h3>
+                <ul class="space-y-2 text-sm text-tpGray font-medium">
+                    <li><a href="post.html?id=1"
+                            class="hover:text-brandBlue-500 block py-1.5 px-2 bg-gray-100 rounded text-brandBlue-600">Introduction
+                            to WebSockets</a></li>
+                    <li><a href="post.html?id=5" class="hover:text-brandBlue-500 block py-1.5 px-2">Environment
+                            Setup</a></li>
+                    <li><a href="post.html?id=7" class="hover:text-brandBlue-500 block py-1.5 px-2">WebSocket API</a>
+                    </li>
+                    <li><a href="post.html?id=9" class="hover:text-brandBlue-500 block py-1.5 px-2">Events & Methods</a>
+                    </li>
+                </ul>
+
+                <h3 class="font-bold text-lg mt-8 mb-4 text-tpDark border-b pb-2">Full-Stack Frontend</h3>
+                <ul class="space-y-2 text-sm text-tpGray font-medium">
+                    <li><a href="post.html?id=2" class="hover:text-brandBlue-500 block py-1.5 px-2">React Basics</a>
+                    </li>
+                    <li><a href="post.html?id=6" class="hover:text-brandBlue-500 block py-1.5 px-2">Next.js Routing</a>
+                    </li>
+                    <li><a href="post.html?id=4" class="hover:text-brandBlue-500 block py-1.5 px-2">State Management</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="flex-1 p-6 lg:p-8 min-w-0">
+            <div class="max-w-4xl">
+                <!-- Breadcrumbs -->
+                <nav class="flex text-sm text-gray-500 mb-6 bg-tpLight p-3.5 rounded-md border border-gray-200">
+                    <ol class="flex items-center space-x-2">
+                        <li>
+                            <a href="home.html" class="hover:text-brandBlue-500 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                    </path>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li><span class="mx-2 text-gray-400">/</span></li>
+                        <li><a href="index.html" class="hover:text-brandBlue-500">Tutorials</a></li>
+                        <li><span class="mx-2 text-gray-400">/</span></li>
+                        <li class="text-gray-800 font-semibold" aria-current="page">WebSockets Introduction</li>
+                    </ol>
+                </nav>
+
+                <!-- Page Content -->
+                <h1 class="text-4xl font-bold mb-4 text-tpDark border-b pb-4 border-gray-200">Introduction to WebSockets
+                </h1>
+
+                <div class="prose prose-lg text-gray-700 mt-6 leading-relaxed max-w-none">
+                    <p class="mb-4">
+                        WebSockets is an advanced technology that makes it possible to open an interactive communication
+                        session between the user's browser and a server. With this API, you can send messages to a
+                        server and receive event-driven responses without having to poll the server for a reply.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4 text-tpDark">Why WebSockets?</h2>
+                    <p class="mb-4">
+                        Before WebSockets, the web was built around the HTTP request/response paradigm. A client loads a
+                        web page and then nothing happens until the user clicks onto the next page. Around 2005, AJAX
+                        started to make the web feel more dynamic. Still, all HTTP communication was steered by the
+                        client, which required user interaction or periodic polling to load new data from the server.
+                    </p>
+
+                    <div class="bg-[#fcf8e3] border-l-4 border-[#faebcc] p-4 my-6 rounded-r-md text-[#8a6d3b]">
+                        <p class="m-0 font-medium"><strong>Note:</strong> WebSockets represent a standard way to achieve
+                            real-time, bi-directional communication between client and server.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4 text-tpDark">Code Example</h2>
+                    <p class="mb-4">Here is a simple example of establishing a WebSocket connection:</p>
+                    <pre
+                        class="bg-[#f8f9fa] border border-gray-200 text-sm text-[#e83e8c] p-4 rounded-md overflow-x-auto shadow-inner font-mono"><code>// Create WebSocket connection.
+const socket = new WebSocket('ws://localhost:8080');
+
+// Connection opened
+socket.addEventListener('open', (event) => {
+    socket.send('Hello Server!');
+});
+
+// Listen for messages
+socket.addEventListener('message', (event) => {
+    console.log('Message from server ', event.data);
+});</code></pre>
+                </div>
+
+                <!-- Pagination Buttons -->
+                <div class="flex justify-between mt-12 border-t pt-6">
+                    <a href="home.html"
+                        class="px-5 py-2.5 border border-gray-300 rounded hover:bg-gray-50 font-semibold text-gray-700 shadow-sm transition-colors">&larr;
+                        Previous</a>
+                    <a href="post.html?id=5"
+                        class="px-5 py-2.5 bg-brandBlue-500 text-white rounded hover:bg-brandBlue-600 font-semibold shadow-sm transition-colors">Next
+                        &rarr;</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mockupLinks = document.querySelectorAll('a[href="#"]');
+            mockupLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert("This link is a placeholder in this visual prototype.\n\nPlease use the 'Courses', 'Blog', and 'Tutorials' links in the top menu to navigate between the main pages.");
+                });
+            });
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Login')) {
+                    btn.addEventListener('click', () => alert('Login placeholder (Requires Phase 3 backend)'));
+                } else if (btn.textContent.includes('Next') || btn.textContent.includes('Previous')) {
+                    btn.addEventListener('click', () => alert('Pagination placeholder'));
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
